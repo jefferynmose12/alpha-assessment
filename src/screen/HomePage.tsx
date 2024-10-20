@@ -157,7 +157,7 @@ const HomePage = () => {
             <div className="flex w-full md:w-auto items-center gap-3 justify-between md:justify-start">
               <CustomButton
                 children={<RxDotsVertical />}
-                className="text-black bg-white border-switch-dom"
+                className="text-black dark:text-white h-[42px] bg-white dark:bg-primary-dark border-switch-dom dark:border-primary-dark"
               />
               <CustomButton
                 children={
@@ -166,7 +166,7 @@ const HomePage = () => {
                     <span>Export</span>
                   </div>
                 }
-                className="text-black bg-white border-switch-dom"
+                className="text-black dark:text-white h-[42px] bg-white dark:bg-primary-dark border-switch-dom dark:border-primary-dark"
               />
             </div>
           </div>
