@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import HomePage from "./screen/HomePage";
+import Layout from "./layout/index";
+import { sideBarMenu } from "./layout/data";
+import { ThemeProvider } from "./context/ThemeProvider";
+import "react-responsive-modal/styles.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route index path="/" element={<Navigate to="/dashboard" />} />
+          {sideBarMenu.map((rout) => (
+            <Route key={rout.route} element={<Layout />}>
+              <Route element={<HomePage />} path={rout.route} />
+            </Route>
+          ))}
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
